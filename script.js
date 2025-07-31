@@ -18,6 +18,7 @@ function getBoxSize(gridSize) {
   }
   
 grid(16, 16); // Initial grid size
+
 let input = document.querySelector('#grid-size');
 let btn_1= document.querySelector('#apply-button');
 btn_1.addEventListener('click', function() {
@@ -28,4 +29,15 @@ btn_1.addEventListener('click', function() {
     }
     document.querySelector('.container').innerHTML = ''; // Clear previous grid
     grid(gridSize, gridSize);
+});
+
+let start_btn = document.querySelector('#start');
+// Add event listeners for start and stop buttons
+start_btn.addEventListener('click', function() {
+    let boxes = document.querySelectorAll('#box');
+    boxes.forEach(box => {
+        box.addEventListener('mouseover', function() {
+            box.style.backgroundColor = 'blue';
+        });
+    });
 });
