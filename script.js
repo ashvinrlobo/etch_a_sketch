@@ -31,13 +31,23 @@ btn_1.addEventListener('click', function() {
     grid(gridSize, gridSize);
 });
 
-let start_btn = document.querySelector('#start');
-// Add event listeners for start and stop buttons
-start_btn.addEventListener('click', function() {
-    let boxes = document.querySelectorAll('#box');
-    boxes.forEach(box => {
-        box.addEventListener('mouseover', function() {
-            box.style.backgroundColor = 'blue';
-        });
-    });
+let isHoverEnabled = false;
+//if the left click is on the box, toggle hover effect
+document.querySelector('.container').addEventListener('click', function(event) {
+    if (event.target.id === 'box') {
+        isHoverEnabled = !isHoverEnabled;
+        if (isHoverEnabled) {
+            document.querySelectorAll('#box').forEach(box => {
+                box.addEventListener('mouseover', hoverEffect);
+            });
+        } else {
+            document.querySelectorAll('#box').forEach(box => {
+                box.removeEventListener('mouseover', hoverEffect);
+            });
+        }
+    }
 });
+
+function hoverEffect(event) {
+    event.target.style.backgroundColor = 'blue';
+}
