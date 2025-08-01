@@ -8,6 +8,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <h3>Right click on the sketch pad and move the cursor to start drawing. To stop right click again. To erase, change the color to white.</h3>
     <div class="layout">
         <h1>Etch A Sketch</h1>
         <div class="container">
@@ -17,7 +18,14 @@
             <label for="grid-size">Grid Size (16-100):</label>
             <input type="number" id="grid-size" min="16" max="100" value="16">
             <button id="apply-button">Apply</button>
-            
+            <li>
+                <label for="color-picker">Enter a color:</label>
+                <input type="text" id="color-picker" placeholder="e.g., red or #ff0000">
+                <button id="color-button">Change Color</button>
+            </li>
+            <li>
+                <button id="clear">Clear</button>
+            </li>
         </div>
     </div>
 </body>

@@ -1,7 +1,5 @@
 function grid(rows,cols){
     let container= document.querySelector('.container');
-    // let size=(500*500)/(rows*cols);
-    // size= Math.sqrt(size)-1;
     let size= getBoxSize(rows);
     
     for (let i = 0; i < rows * cols; i++) {
@@ -35,6 +33,7 @@ let isHoverEnabled = false;
 //if the left click is on the box, toggle hover effect
 document.querySelector('.container').addEventListener('click', function(event) {
     if (event.target.id === 'box') {
+        console.log(isHoverEnabled);
         isHoverEnabled = !isHoverEnabled;
         if (isHoverEnabled) {
             document.querySelectorAll('#box').forEach(box => {
@@ -49,5 +48,32 @@ document.querySelector('.container').addEventListener('click', function(event) {
 });
 
 function hoverEffect(event) {
-    event.target.style.backgroundColor = 'blue';
+    if (color_choice()) {
+        event.target.style.backgroundColor = color_choice();
+    } else {
+        event.target.style.backgroundColor = 'blue';
+    }
 }
+
+function color_choice() {
+    let color = document.querySelector('#color-picker').value;
+    return color;
+}
+
+let color_btn = document.querySelector('#color-button');
+color_btn.addEventListener('click', function() {
+    isHoverEnabled = false; // Disable hover effect
+    console.log(isHoverEnabled);
+
+    // Remove hoverEffect from all boxes
+    document.querySelectorAll('#box').forEach(box => {
+        box.removeEventListener('mouseover', hoverEffect);
+    });
+});
+
+let clear = document.querySelector('#clear');
+clear.addEventListener('click', function() {
+    document.querySelectorAll('#box').forEach(box => {
+        box.style.backgroundColor = 'white';
+    });
+});
