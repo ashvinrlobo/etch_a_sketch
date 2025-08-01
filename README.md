@@ -2,6 +2,8 @@
 
 A simple Etch-A-Sketch web application where users can draw on a grid by hovering over squares. The grid size can be customized, and the hover effect can be toggled on or off.
 
+Live preview: https://ashvinrlobo.github.io/etch_a_sketch/
+
 ## Features
 
 - **Dynamic Grid Creation**: Users can specify the grid size (between 16x16 and 100x100).
